@@ -7,7 +7,7 @@ https://trello.com/b/he7HD8Er
 
 Wireframes:
 
-![Login page](0E959980-406E-48F6-A9EA-BCE5F7FAE1AA.jpeg)
+![Login page](src/wireframes/login-page.jpeg)
 
 ![Create new account page](6C0C5BFD-B436-4CF2-9646-FD3DFA2101D6.jpeg)
 
