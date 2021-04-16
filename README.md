@@ -7,14 +7,14 @@ https://trello.com/b/he7HD8Er
 
 Wireframes:
 
-![Login page](src/wireframes/login-page.jpeg)
 
-![Create new account page](6C0C5BFD-B436-4CF2-9646-FD3DFA2101D6.jpeg)
+![login-page](https://user-images.githubusercontent.com/74214431/114956651-f157b380-9e24-11eb-842b-d8011bf88665.jpeg)
 
-![User dashboard page](AFAAD9CA-A5D5-4E1A-92E5-69E1F4899C8F.jpeg)
+![create-account-page](https://user-images.githubusercontent.com/74214431/114956663-f74d9480-9e24-11eb-8c52-91e9cca7b150.jpeg)
 
-![View all practices page](C1567B5D-BD37-4F11-B3CE-E5B89DF14E13.jpeg)
+![dashboard-page](https://user-images.githubusercontent.com/74214431/114956673-fa488500-9e24-11eb-8443-1235477b20e8.jpeg)
 
+![view-practices-page](https://user-images.githubusercontent.com/74214431/114956684-ff0d3900-9e24-11eb-9c30-6830e9f5da86.jpeg)
 
 
 
