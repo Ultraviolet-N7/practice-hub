@@ -1,12 +1,37 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
-    <meta charset="UTF-8"/>
-    <title></title>
-</head>
 <body class="container">
 
-<h1>Hello, World!</h1>
+<header th:replace="fragments :: header"></header>
+
+    <h3>Please select which types of practices you attended:</h3>
+
+<form method="post">
+    <div class="form-check">
+        <input type="checkbox" name="regular" class="form-check-input" id="regular">
+        <label class="form-check-label" for="regular">Regular</label>
+    </div>
+    <div class="form-check">
+        <input type="checkbox" name="advanced" class="form-check-input" id="advanced">
+        <label class="form-check-label" for="regular">Advanced</label>
+    </div>
+    <div class="form-check">
+        <input type="checkbox" name="super" class="form-check-input" id="super">
+        <label class="form-check-label" for="regular">Super</label>
+   </div>
+   <div class="form-check">
+        <input type="checkbox" name="fundamentals" class="form-check-input" id="fundamentals">
+        <label class="form-check-label" for="regular">Fundamentals</label>
+   </div>
+   <div class="form-check">
+        <input type="checkbox" name="game" class="form-check-input" id="game">
+        <label class="form-check-label" for="regular">Game</label>
+   </div>
+   <div>
+        <input type="submit" value="Submit Practice" class="btn btn-dark">
+   </div>
+</form>
 
 </body>
 </html>
