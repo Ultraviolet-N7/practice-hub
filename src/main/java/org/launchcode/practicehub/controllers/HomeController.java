@@ -8,12 +8,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class HomeController {
 
     @GetMapping
-    public String index() {
+    public String index(Model model) {
+        model.addAttribute("title", "My Dashboard");
         return "index";
     }
 
     @GetMapping("practices")
     public String displayAllPractices(Model model) {
+        model.addAttribute("title", "All Practices");
         return "practices";
     }
 
