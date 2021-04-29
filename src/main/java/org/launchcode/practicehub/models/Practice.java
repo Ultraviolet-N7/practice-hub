@@ -14,7 +14,7 @@ public class Practice {
 
     private int numCredits;
 
-    // This will be an enum type
+    // This will be an array of enum types
     // private PracticeType type;
 
     private Date practiceDate;
