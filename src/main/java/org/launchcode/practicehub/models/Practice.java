@@ -3,6 +3,7 @@ package org.launchcode.practicehub.models;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.util.Date;
 
 @Entity
 public class Practice {
@@ -16,7 +17,7 @@ public class Practice {
     // This will be an enum type
     // private PracticeType type;
 
-    // Date variable
+    private Date practiceDate;
 
 
     public Practice(int numCredits) {
@@ -31,5 +32,13 @@ public class Practice {
 
     public void setNumCredits(int numCredits) {
         this.numCredits = numCredits;
+    }
+
+    public Date getPracticeDate() {
+        return practiceDate;
+    }
+
+    public void setPracticeDate(Date practiceDate) {
+        this.practiceDate = practiceDate;
     }
 }
