@@ -24,7 +24,6 @@ public class Practice {
     // Will need to add types to constructor
     public Practice(Date practiceDate, int numCredits) {
         this.practiceDate = practiceDate;
-//        this.types = types;
         this.numCredits = numCredits;
     }
 
@@ -37,14 +36,6 @@ public class Practice {
     public void setPracticeDate(Date practiceDate) {
         this.practiceDate = practiceDate;
     }
-
-//    public List<PracticeType> getTypes() {
-//        return types;
-//    }
-//
-//    public void setTypes(List<PracticeType> types) {
-//        this.types = types;
-//    }
 
     public int getNumCredits() {
         return numCredits;
