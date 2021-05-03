@@ -10,10 +10,6 @@ import java.util.List;
 @Entity
 public class Practice {
 
-    @Id
-    @GeneratedValue
-    private int id;
-
     private Date practiceDate;
 
     // arrayList of PracticeType (enum) types
