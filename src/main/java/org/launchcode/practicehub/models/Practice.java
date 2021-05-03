@@ -8,16 +8,12 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-public class Practice {
+public class Practice extends AbstractEntity {
 
     private Date practiceDate;
 
-    // arrayList of PracticeType (enum) types
-//    private List<PracticeType> types = new ArrayList<>();
-
     private Double numCredits;
 
-    // Will need to add types to constructor
     public Practice(Date practiceDate, Double numCredits) {
         this.practiceDate = practiceDate;
         this.numCredits = numCredits;
