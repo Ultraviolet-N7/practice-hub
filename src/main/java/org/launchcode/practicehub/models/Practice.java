@@ -19,10 +19,10 @@ public class Practice {
     // arrayList of PracticeType (enum) types
 //    private List<PracticeType> types = new ArrayList<>();
 
-    private int numCredits;
+    private Double numCredits;
 
     // Will need to add types to constructor
-    public Practice(Date practiceDate, int numCredits) {
+    public Practice(Date practiceDate, Double numCredits) {
         this.practiceDate = practiceDate;
         this.numCredits = numCredits;
     }
@@ -37,11 +37,11 @@ public class Practice {
         this.practiceDate = practiceDate;
     }
 
-    public int getNumCredits() {
+    public Double getNumCredits() {
         return numCredits;
     }
 
-    public void setNumCredits(int numCredits) {
+    public void setNumCredits(Double numCredits) {
         this.numCredits = numCredits;
     }
 }

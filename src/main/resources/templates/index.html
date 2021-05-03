@@ -6,7 +6,7 @@
 <nav th:replace="fragments :: navBar"></nav>
 
 <div class="container-fluid">
-<h3>Please select which types of practices you attended:</h3>
+<h2>My Dashboard</h2>
 </div>
 
 <!--<form method="post" class="container-fluid">-->
@@ -30,11 +30,21 @@
 <!--        <input type="checkbox" name="game" class="form-check-input" id="game">-->
 <!--        <label class="form-check-label" for="regular">Game</label>-->
 <!--   </div>-->
-        <input type="date">
 
-   <div>
-        <input type="submit" value="Submit Practice" class="btn btn-dark">
-   </div>
+<form>
+    <label>Practice Date<input type="date" name="calendar"></label>
+</form>
+
+<form>
+    <label>Number of Credits
+        <select name="creditNum">
+            <option value="">*Select One*</option>
+            <option value=".5">.5</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select>
+    </label>
 </form>
 
 
