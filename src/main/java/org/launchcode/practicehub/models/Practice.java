@@ -6,26 +6,29 @@ import javax.persistence.Id;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.lang.Object;
+import java.time.LocalDate;
+
 
 @Entity
 public class Practice extends AbstractEntity {
 
-    private Date practiceDate;
+    private LocalDate practiceDate;
 
     private Double numCredits;
 
-    public Practice(Date practiceDate, Double numCredits) {
+    public Practice(LocalDate practiceDate, Double numCredits) {
         this.practiceDate = practiceDate;
         this.numCredits = numCredits;
     }
 
     public Practice(){}
 
-    public Date getPracticeDate() {
+    public LocalDate getPracticeDate() {
         return practiceDate;
     }
 
-    public void setPracticeDate(Date practiceDate) {
+    public void setPracticeDate(LocalDate practiceDate) {
         this.practiceDate = practiceDate;
     }
 
