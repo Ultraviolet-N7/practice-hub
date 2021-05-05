@@ -1,12 +1,6 @@
 package org.launchcode.practicehub.models;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.lang.Object;
 import java.time.LocalDate;
 
 
