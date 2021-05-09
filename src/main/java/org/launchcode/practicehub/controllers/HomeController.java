@@ -22,14 +22,15 @@ public class HomeController {
     @GetMapping
     public String index(Model model) {
         model.addAttribute("title", "My Dashboard");
+        model.addAttribute(new Practice());
         return "index";
     }
 
-//    @PostMapping
-//    public String processAddPracticeForm(@ModelAttribute Practice newPractice, Model model) {
-//        practiceRepository.save(newPractice);
-//        return "practices";
-//    }
+    @PostMapping
+    public String processAddPracticeForm(@ModelAttribute Practice newPractice) {
+        practiceRepository.save(newPractice);
+        return "practices";
+    }
 
     @GetMapping("practices")
     public String listAllPractices(Model model) {

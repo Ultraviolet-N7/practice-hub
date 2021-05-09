@@ -32,11 +32,11 @@
 <!--   </div>-->
 
 
-<form method="post" action="">
+<form method="post" action="/practices">
     <div class="form-group">
-    <label>Practice Date<input type="date" name="practiceDate" class="form-control"></label>
+    <label>Practice Date<input th:field="${practice.date}" type="date" name="practiceDate" class="form-control"></label>
     <label>Number of Credits
-        <select name="creditNum" class="form-control">
+        <select th:field="${practice.numCredits}" name="creditNum" class="form-control">
             <option value="">*Select One*</option>
             <option value=".5">.5</option>
             <option value="1">1</option>
