@@ -7,23 +7,23 @@ import java.time.LocalDate;
 @Entity
 public class Practice extends AbstractEntity {
 
-    private LocalDate practiceDate;
+    private LocalDate date;
 
     private Double numCredits;
 
     public Practice(LocalDate practiceDate, Double numCredits) {
-        this.practiceDate = practiceDate;
+        this.date = practiceDate;
         this.numCredits = numCredits;
     }
 
     public Practice(){}
 
-    public LocalDate getPracticeDate() {
-        return practiceDate;
+    public LocalDate getDate() {
+        return date;
     }
 
-    public void setPracticeDate(LocalDate practiceDate) {
-        this.practiceDate = practiceDate;
+    public void setDate(LocalDate date) {
+        this.date = date;
     }
 
     public Double getNumCredits() {
