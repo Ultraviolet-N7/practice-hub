@@ -47,7 +47,7 @@ public class AuthenticationFilter extends HandlerInterceptorAdapter {
         if (user != null) {
             return true;
         }
-        
+
         response.sendRedirect("/login");
         return false;
     }
