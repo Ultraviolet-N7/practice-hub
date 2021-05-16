@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
-<body>
+<body class="container-fluid">
 
 <nav th:replace="fragments :: navBar"></nav>
 
+<div class="container-fluid">
 <h1 th:text="${title}"></h1>
+</div>
 
+<div class="container-fluid">
 <table class="table table-striped">
     <thead>
         <tr>
@@ -21,6 +24,7 @@
         </tr>
     </tbody>
 </table>
+</div>
 
 
 </body>

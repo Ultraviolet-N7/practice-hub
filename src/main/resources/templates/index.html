@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
-<body class="container">
+<body class="container-fluid">
 
 <nav th:replace="fragments :: navBar"></nav>
 
 <div class="container-fluid">
-<h2 th:text="${title}"></h2>
+<h1 th:text="${title}"></h1>
 </div>
 
 <!--<form method="post" class="container-fluid">-->
@@ -32,7 +32,7 @@
 <!--   </div>-->
 
 
-<form method="post" action="">
+<form method="post" action="" class="container-fluid">
     <div class="form-group">
     <label>Practice Date<input th:field="${practice.date}" type="date" name="practiceDate" class="form-control"></label>
     <label>Number of Credits
@@ -45,7 +45,7 @@
         </select>
     </label>
     </div>
-    <div class="form-group">
+    <div class="form-group container-fluid">
         <label>
             <input type="submit" value="Submit" class="btn btn-dark">
         </label>
