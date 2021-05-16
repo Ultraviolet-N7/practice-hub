@@ -27,13 +27,13 @@ public class HomeController {
     }
 
     @PostMapping
-    public String processAddPracticeForm(@ModelAttribute Practice newPractice) {
+    public String processAddPracticeForm(@ModelAttribute Practice newPractice, Model model) {
         practiceRepository.save(newPractice);
         return "practices";
     }
 
     @GetMapping("practices")
-    public String listAllPractices(Model model) {
+    public String displayAllPractices(Model model) {
         model.addAttribute("title", "All Practices");
         model.addAttribute("practices", practiceRepository.findAll());
         return "practices";

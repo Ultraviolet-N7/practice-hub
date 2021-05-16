@@ -1,5 +1,7 @@
 package org.launchcode.practicehub.models;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.Entity;
 import java.time.LocalDate;
 
@@ -7,6 +9,7 @@ import java.time.LocalDate;
 @Entity
 public class Practice extends AbstractEntity {
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate date;
 
     private Double numCredits;
@@ -33,4 +36,6 @@ public class Practice extends AbstractEntity {
     public void setNumCredits(Double numCredits) {
         this.numCredits = numCredits;
     }
+
+
 }
