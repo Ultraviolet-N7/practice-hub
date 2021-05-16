@@ -7,17 +7,15 @@
 
 <h1 th:text="${title}"></h1>
 
-<table class="table">
+<table class="table table-striped">
     <thead>
         <tr>
-            <th scope="col">Name</th>
             <th scope="col">Date</th>
             <th scope="col">Number of Credits</th>
         </tr>
     </thead>
     <tbody>
         <tr th:each="practice : ${practices}">
-            <td>Placeholder</td>
             <td th:text="${practice.date}">a date</td>
             <td th:text="${practice.numCredits}">a number</td>
         </tr>
