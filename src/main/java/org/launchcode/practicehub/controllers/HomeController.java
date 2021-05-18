@@ -19,6 +19,7 @@ public class HomeController {
     @Autowired
     private PracticeRepository practiceRepository;
 
+
     @GetMapping
     public String index(Model model) {
         model.addAttribute("title", "My Dashboard");

@@ -1,17 +1,19 @@
 package org.launchcode.practicehub.models;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Player extends AbstractEntity {
 
     private String name;
 
-    private Double totalCredits;
+    private Double currentMonthCredits;
 
     public Player(String name, Double totalCredits) {
         this.name = name;
-        this.totalCredits = totalCredits;
+        this.currentMonthCredits = totalCredits;
     }
 
     public Player(){}
@@ -24,12 +26,12 @@ public class Player extends AbstractEntity {
         this.name = name;
     }
 
-    public Double getTotalCredits() {
-        return totalCredits;
+    public Double getCurrentMonthCredits() {
+        return currentMonthCredits;
     }
 
-    public void setTotalCredits(Double totalCredits) {
-        this.totalCredits = totalCredits;
+    public void setCurrentMonthCredits(Double totalCredits) {
+        this.currentMonthCredits = totalCredits;
     }
 
     @Override

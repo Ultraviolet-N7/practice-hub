@@ -3,6 +3,8 @@ package org.launchcode.practicehub.models;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 
@@ -14,9 +16,14 @@ public class Practice extends AbstractEntity {
 
     private Double numCredits;
 
-    public Practice(LocalDate practiceDate, Double numCredits) {
+    @ManyToOne
+    //@NotNull(message = "Test message")
+    private Player player;
+
+    public Practice(LocalDate practiceDate, Double numCredits, Player player) {
         this.date = practiceDate;
         this.numCredits = numCredits;
+        this.player = player;
     }
 
     public Practice(){}
@@ -37,5 +44,8 @@ public class Practice extends AbstractEntity {
         this.numCredits = numCredits;
     }
 
+    public Player getPlayer() {
+        return player;
+    }
 
 }
