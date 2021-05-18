@@ -1,5 +1,6 @@
 package org.launchcode.practicehub.controllers;
 
+import org.launchcode.practicehub.data.PlayerRepository;
 import org.launchcode.practicehub.data.PracticeRepository;
 import org.launchcode.practicehub.models.Practice;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,9 @@ public class HomeController {
 
     @Autowired
     private PracticeRepository practiceRepository;
+
+    @Autowired
+    private PlayerRepository playerRepository;
 
 
     @GetMapping
