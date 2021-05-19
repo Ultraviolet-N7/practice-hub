@@ -2,6 +2,7 @@ package org.launchcode.practicehub.controllers;
 
 import org.launchcode.practicehub.data.PlayerRepository;
 import org.launchcode.practicehub.data.PracticeRepository;
+import org.launchcode.practicehub.data.UserRepository;
 import org.launchcode.practicehub.models.Practice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,6 +24,9 @@ public class HomeController {
     @Autowired
     private PlayerRepository playerRepository;
 
+    @Autowired
+    private UserRepository userRepository;
+
 
     @GetMapping
     public String index(Model model) {
@@ -42,6 +46,12 @@ public class HomeController {
         model.addAttribute("title", "All Practices");
         model.addAttribute("practices", practiceRepository.findAll());
         return "practices";
+    }
+
+    @GetMapping("name")
+    public String setSkaterName(Model model) {
+        model.addAttribute("title", "Please enter your skater name.");
+        return "name";
     }
 
 }
