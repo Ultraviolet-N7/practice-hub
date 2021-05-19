@@ -3,6 +3,7 @@ package org.launchcode.practicehub.controllers;
 import org.launchcode.practicehub.data.PlayerRepository;
 import org.launchcode.practicehub.data.PracticeRepository;
 import org.launchcode.practicehub.data.UserRepository;
+import org.launchcode.practicehub.models.Player;
 import org.launchcode.practicehub.models.Practice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -51,6 +52,7 @@ public class HomeController {
     @GetMapping("name")
     public String setSkaterName(Model model) {
         model.addAttribute("title", "Please enter your skater name.");
+        model.addAttribute(new Player());
         return "name";
     }
 

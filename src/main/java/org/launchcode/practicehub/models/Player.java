@@ -7,7 +7,7 @@ import javax.validation.constraints.NotNull;
 @Entity
 public class Player extends AbstractEntity {
 
-    private String name;
+    private static String name;
 
     private Double currentMonthCredits;
 
