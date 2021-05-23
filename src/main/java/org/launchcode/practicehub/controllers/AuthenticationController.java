@@ -1,6 +1,7 @@
 package org.launchcode.practicehub.controllers;
 
 import org.launchcode.practicehub.data.UserRepository;
+import org.launchcode.practicehub.models.Player;
 import org.launchcode.practicehub.models.User;
 import org.launchcode.practicehub.models.dto.LoginFormDTO;
 import org.launchcode.practicehub.models.dto.RegisterFormDTO;
@@ -50,6 +51,7 @@ public class AuthenticationController {
         return "register";
     }
 
+    //
     @PostMapping("/register")
     public String processRegistrationForm(@ModelAttribute @Valid RegisterFormDTO registerFormDTO,
                                           Errors errors, HttpServletRequest request,
@@ -79,6 +81,9 @@ public class AuthenticationController {
         User newUser = new User(registerFormDTO.getUsername(), registerFormDTO.getPassword());
         userRepository.save(newUser);
         setUserInSession(request.getSession(), newUser);
+
+       // Player newPlayer = new Player(constructor parameters) (add user id to constructor)
+        //player repository.save(newPlayer);
 
         return "redirect:";
     }

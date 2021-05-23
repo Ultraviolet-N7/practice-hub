@@ -7,13 +7,12 @@ import javax.validation.constraints.NotNull;
 @Entity
 public class Player extends AbstractEntity {
 
-    private static String name;
+    private String name;
 
-    private Double currentMonthCredits;
+    private Double currentMonthCredits = 0.0;
 
-    public Player(String name, Double totalCredits) {
+    public Player(String name) {
         this.name = name;
-        this.currentMonthCredits = totalCredits;
     }
 
     public Player(){}

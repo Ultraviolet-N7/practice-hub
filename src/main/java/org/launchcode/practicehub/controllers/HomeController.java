@@ -25,9 +25,6 @@ public class HomeController {
     @Autowired
     private PlayerRepository playerRepository;
 
-    @Autowired
-    private UserRepository userRepository;
-
 
     @GetMapping
     public String index(Model model) {
@@ -54,6 +51,12 @@ public class HomeController {
         model.addAttribute("title", "Please enter your skater name.");
         model.addAttribute(new Player());
         return "name";
+    }
+
+    @PostMapping("name")
+    public String processSetSkaterNameForm(@ModelAttribute Player newPlayer, Model model) {
+        playerRepository.save(newPlayer);
+        return "index";
     }
 
 }
