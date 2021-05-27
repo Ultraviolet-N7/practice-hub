@@ -1,5 +1,6 @@
 package org.launchcode.practicehub.controllers;
 
+import org.launchcode.practicehub.data.PlayerRepository;
 import org.launchcode.practicehub.data.UserRepository;
 import org.launchcode.practicehub.models.Player;
 import org.launchcode.practicehub.models.User;
@@ -23,6 +24,8 @@ public class AuthenticationController {
 
     @Autowired
     UserRepository userRepository;
+
+    @Autowired PlayerRepository playerRepository;
 
     private static final String userSessionKey = "user";
 
@@ -84,6 +87,9 @@ public class AuthenticationController {
 
        // Player newPlayer = new Player(constructor parameters) (add user id to constructor)
         //player repository.save(newPlayer);
+
+        Player newPlayer = new Player(registerFormDTO.getSkaterName());
+        playerRepository.save(newPlayer);
 
         return "redirect:";
     }

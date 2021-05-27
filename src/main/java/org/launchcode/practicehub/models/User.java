@@ -14,6 +14,9 @@ public class User extends AbstractEntity {
     @NotNull
     private String pwHash;
 
+    @NotNull
+    private Player player;
+
     private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
     public User() {}
