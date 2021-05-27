@@ -2,6 +2,8 @@ package org.launchcode.practicehub.models;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -11,7 +13,12 @@ public class Player extends AbstractEntity {
 
     private Double currentMonthCredits = 0.0;
 
-    public Player(String name) {
+    @OneToOne
+    @Valid
+    @NotNull
+    private User user;
+
+    public Player(User user, String name) {
         this.name = name;
     }
 

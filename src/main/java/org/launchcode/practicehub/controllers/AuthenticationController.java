@@ -88,7 +88,7 @@ public class AuthenticationController {
        // Player newPlayer = new Player(constructor parameters) (add user id to constructor)
         //player repository.save(newPlayer);
 
-        Player newPlayer = new Player(registerFormDTO.getSkaterName());
+        Player newPlayer = new Player(newUser, registerFormDTO.getSkaterName());
         playerRepository.save(newPlayer);
 
         return "redirect:";

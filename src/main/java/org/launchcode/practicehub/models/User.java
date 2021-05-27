@@ -3,6 +3,8 @@ package org.launchcode.practicehub.models;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -14,7 +16,7 @@ public class User extends AbstractEntity {
     @NotNull
     private String pwHash;
 
-    @NotNull
+    @OneToOne(mappedBy = "user")
     private Player player;
 
     private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
@@ -34,4 +36,11 @@ public class User extends AbstractEntity {
         return username;
     }
 
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
 }
