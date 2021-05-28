@@ -36,16 +36,16 @@ public class HomeController {
         model.addAttribute("title", "My Dashboard");
         model.addAttribute(new Practice());
         // Ask about the use of .get() here!
-//        Player player = userRepository.findById(user.getId()).get().getPlayer();
-//        Double credTotal = 0.0;
-//
-//        for (Practice practice : player.getPractices()) {
-//             credTotal += practice.getNumCredits();
-//             player.setCurrentMonthCredits(credTotal);
-//        }
-//
-//        model.addAttribute("counter", player.getCurrentMonthCredits());
-//        model.addAttribute("name", player.getName());
+        Player player = userRepository.findById(user.getId()).get().getPlayer();
+        Double credTotal = 0.0;
+
+        for (Practice practice : player.getPractices()) {
+             credTotal += practice.getNumCredits();
+             player.setCurrentMonthCredits(credTotal);
+        }
+
+        model.addAttribute("counter", player.getCurrentMonthCredits());
+        model.addAttribute("name", player.getName());
 
         return "index";
     }
