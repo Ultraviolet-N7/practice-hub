@@ -18,12 +18,11 @@ public class Practice extends AbstractEntity {
 
     @ManyToOne
     //@NotNull(message = "Test message")
-    private Player player;
+    private User user;
 
-    public Practice(LocalDate practiceDate, Double numCredits, Player player) {
+    public Practice(LocalDate practiceDate, Double numCredits) {
         this.date = practiceDate;
         this.numCredits = numCredits;
-        this.player = player;
     }
 
     public Practice(){}
@@ -44,8 +43,5 @@ public class Practice extends AbstractEntity {
         this.numCredits = numCredits;
     }
 
-    public Player getPlayer() {
-        return player;
-    }
 
 }

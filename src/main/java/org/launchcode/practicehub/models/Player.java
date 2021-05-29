@@ -21,8 +21,8 @@ public class Player extends AbstractEntity {
 //    @NotNull
 //    private User user;
 
-    @OneToMany(mappedBy = "player")
-    private List<Practice> practices = new ArrayList<>();
+//    @OneToMany(mappedBy = "player")
+//    private List<Practice> practices = new ArrayList<>();
 
     public Player(User user, String name) {
         this.name = name;
@@ -50,9 +50,9 @@ public class Player extends AbstractEntity {
 //        return user;
 //    }
 
-    public List<Practice> getPractices() {
-        return practices;
-    }
+//    public List<Practice> getPractices() {
+//        return practices;
+//    }
 
     @Override
     public String toString() {
