@@ -16,10 +16,10 @@ public class Player extends AbstractEntity {
 
     private Double currentMonthCredits = 0.0;
 
-    @OneToOne
-    @Valid
-    @NotNull
-    private User user;
+//    @OneToOne
+//    @Valid
+//    @NotNull
+//    private User user;
 
     @OneToMany(mappedBy = "player")
     private List<Practice> practices = new ArrayList<>();
@@ -46,9 +46,9 @@ public class Player extends AbstractEntity {
         this.currentMonthCredits = totalCredits;
     }
 
-    public User getUser() {
-        return user;
-    }
+//    public User getUser() {
+//        return user;
+//    }
 
     public List<Practice> getPractices() {
         return practices;

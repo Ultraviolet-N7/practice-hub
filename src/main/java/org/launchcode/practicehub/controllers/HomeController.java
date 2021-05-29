@@ -72,6 +72,7 @@ public class HomeController {
 //
 //    @PostMapping("name")
 //    public String processSetSkaterNameForm(@ModelAttribute Player newPlayer, Model model) {
+//
 //        playerRepository.save(newPlayer);
 //        return "index";
 //    }

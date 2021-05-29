@@ -16,6 +16,9 @@ public class User extends AbstractEntity {
     @NotNull
     private String pwHash;
 
+    @NotNull
+    private String skaterName;
+
 //    @OneToOne(mappedBy = "user")
 //    private Player player;
 
@@ -23,9 +26,10 @@ public class User extends AbstractEntity {
 
     public User() {}
 
-    public User(String username, String password) {
+    public User(String username, String password, String skaterName) {
         this.username = username;
         this.pwHash = encoder.encode(password);
+        this.skaterName = skaterName;
     }
 
     public boolean isMatchingPassword(String password) {

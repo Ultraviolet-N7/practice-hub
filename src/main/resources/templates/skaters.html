@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container-fluid">
+
+<nav th:replace="fragments :: navBar"></nav>
+
+<div class="container-fluid">
+    <h1 th:text="${title}"></h1>
+</div>
+
+<div class="container-fluid">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Number of Credits</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="practice : ${practices}">
+            <td th:text="${practice.date}">a date</td>
+            <td th:text="${practice.numCredits}">a number</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+
+</body>
+</html>
