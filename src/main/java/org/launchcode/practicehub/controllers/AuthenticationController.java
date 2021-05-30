@@ -3,6 +3,7 @@ package org.launchcode.practicehub.controllers;
 import org.launchcode.practicehub.data.PlayerRepository;
 import org.launchcode.practicehub.data.UserRepository;
 import org.launchcode.practicehub.models.Player;
+import org.launchcode.practicehub.models.Practice;
 import org.launchcode.practicehub.models.User;
 import org.launchcode.practicehub.models.dto.LoginFormDTO;
 import org.launchcode.practicehub.models.dto.RegisterFormDTO;
@@ -43,9 +44,22 @@ public class AuthenticationController {
         return user.get();
     }
 
+
     private static void setUserInSession(HttpSession session, User user) {
         session.setAttribute(userSessionKey, user.getId());
     }
+// Figure out how to refer to current user in session
+    @GetMapping
+    public String displayPlayerDashboard(Model model, HttpServletRequest request, HttpSession session) {
+        Integer userId = (Integer) session.getAttribute(userSessionKey);
+        User user = getUserFromSession(request.getSession());
+        model.addAttribute("title", "My Dashboard");
+        model.addAttribute("skater", user.getSkaterName());
+        model.addAttribute(new Practice());
+
+        return "index";
+    }
+
 
     @GetMapping("/register")
     public String displayRegistrationForm(Model model) {
@@ -58,7 +72,7 @@ public class AuthenticationController {
     @PostMapping("/register")
     public String processRegistrationForm(@ModelAttribute @Valid RegisterFormDTO registerFormDTO,
                                           Errors errors, HttpServletRequest request,
-                                          Model model) {
+                                          Model model, HttpSession session) {
 
         if (errors.hasErrors()) {
             model.addAttribute("title", "Register");
@@ -85,7 +99,7 @@ public class AuthenticationController {
         User newUser = new User(registerFormDTO.getUsername(), registerFormDTO.getPassword(), registerFormDTO.getSkaterName());
         userRepository.save(newUser);
         setUserInSession(request.getSession(), newUser);
-        request.getSession().setAttribute("skaterName", newUser.getSkaterName());
+        //request.getSession().setAttribute("skaterName", newUser.getSkaterName());
 
        // Player newPlayer = new Player(constructor parameters) (add user id to constructor)
         //player repository.save(newPlayer);

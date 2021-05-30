@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,26 +30,26 @@ public class HomeController {
     @Autowired UserRepository userRepository;
 
 
-    @GetMapping
-    public String displayPlayerDashboard(Model model, HttpServletRequest request) {
-        model.addAttribute("title", "My Dashboard");
-        model.addAttribute("skater", request.getSession().getAttribute("skaterName"));
-        model.addAttribute(new Practice());
-        //userRepository.findByUsername(user.getUsername());
-        // Ask about the use of .get() here!
-//        Player player = userRepository.findById(user.getId()).get().getPlayer();
-//        Double credTotal = 0.0;
+//    @GetMapping
+//    public String displayPlayerDashboard(Model model, HttpServletRequest request, HttpSession session) {
+//        model.addAttribute("title", "My Dashboard");
+//        model.addAttribute("skater", request.getSession().getAttribute("skaterName"));
+//        model.addAttribute(new Practice());
+//        //userRepository.findByUsername(user.getUsername());
+//        // Ask about the use of .get() here!
+////        Player player = userRepository.findById(user.getId()).get().getPlayer();
+////        Double credTotal = 0.0;
+////
+////        for (Practice practice : player.getPractices()) {
+////             credTotal += practice.getNumCredits();
+////             player.setCurrentMonthCredits(credTotal);
+////        }
+////
+////        model.addAttribute("counter", player.getCurrentMonthCredits());
+////        model.addAttribute("name", player.getName());
 //
-//        for (Practice practice : player.getPractices()) {
-//             credTotal += practice.getNumCredits();
-//             player.setCurrentMonthCredits(credTotal);
-//        }
-//
-//        model.addAttribute("counter", player.getCurrentMonthCredits());
-//        model.addAttribute("name", player.getName());
-
-        return "index";
-    }
+//        return "index";
+//    }
 
     @PostMapping
     public String processAddPracticeForm(@ModelAttribute Practice newPractice, Model model) {
