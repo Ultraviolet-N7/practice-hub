@@ -54,7 +54,7 @@ public class HomeController {
     @PostMapping
     public String processAddPracticeForm(@ModelAttribute Practice newPractice, Model model) {
         practiceRepository.save(newPractice);
-        return "practices";
+        return "redirect:";
     }
 
     @GetMapping("practices")

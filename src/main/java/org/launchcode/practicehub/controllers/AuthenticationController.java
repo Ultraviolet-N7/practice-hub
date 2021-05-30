@@ -51,7 +51,7 @@ public class AuthenticationController {
 // Figure out how to refer to current user in session
     @GetMapping
     public String displayPlayerDashboard(Model model, HttpServletRequest request, HttpSession session) {
-        Integer userId = (Integer) session.getAttribute(userSessionKey);
+        //Integer userId = (Integer) session.getAttribute(userSessionKey);
         User user = getUserFromSession(request.getSession());
         model.addAttribute("title", "My Dashboard");
         model.addAttribute("skater", user.getSkaterName());
