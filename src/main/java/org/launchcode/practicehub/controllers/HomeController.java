@@ -10,11 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -32,9 +30,11 @@ public class HomeController {
 
 
     @GetMapping
-    public String displayPlayerDashboard(Model model, User user) {
+    public String displayPlayerDashboard(Model model, HttpServletRequest request) {
         model.addAttribute("title", "My Dashboard");
+        model.addAttribute("skater", request.getSession().getAttribute("skaterName"));
         model.addAttribute(new Practice());
+        //userRepository.findByUsername(user.getUsername());
         // Ask about the use of .get() here!
 //        Player player = userRepository.findById(user.getId()).get().getPlayer();
 //        Double credTotal = 0.0;

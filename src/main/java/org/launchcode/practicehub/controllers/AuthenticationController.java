@@ -85,6 +85,7 @@ public class AuthenticationController {
         User newUser = new User(registerFormDTO.getUsername(), registerFormDTO.getPassword(), registerFormDTO.getSkaterName());
         userRepository.save(newUser);
         setUserInSession(request.getSession(), newUser);
+        request.getSession().setAttribute("skaterName", newUser.getSkaterName());
 
        // Player newPlayer = new Player(constructor parameters) (add user id to constructor)
         //player repository.save(newPlayer);

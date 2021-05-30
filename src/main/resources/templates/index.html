@@ -7,6 +7,7 @@
 
 <div class="container-fluid">
 <h1 th:text="${title}"></h1>
+    <h2 th:text="${skater}">test</h2>
 </div>
 
 <!--<form method="post" class="container-fluid">-->
@@ -61,7 +62,7 @@
         </li>
         <li class="nav-item">
             <a class="nav-link active text-dark"
-               href="https://docs.google.com/forms/d/e/1FAIpQLSce3q_EPQEsiXjs6UUdra5LV04z6pSY-fvELJegBsMbBpnq5w/viewform">Exemption Forms & Waivers</a>
+               th:href="@{https://docs.google.com/forms/d/e/1FAIpQLSce3q_EPQEsiXjs6UUdra5LV04z6pSY-fvELJegBsMbBpnq5w/viewform}">Exemption Forms & Waivers</a>
         </li>
         <li class="nav-item">
             <a class="nav-link active text-dark"

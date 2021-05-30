@@ -45,7 +45,11 @@ public class User extends AbstractEntity {
         return username;
     }
 
-//    public Player getPlayer() {
+    public String getSkaterName() {
+        return skaterName;
+    }
+
+    //    public Player getPlayer() {
 //        return player;
 //    }
 //
