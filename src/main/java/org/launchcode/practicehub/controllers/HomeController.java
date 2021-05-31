@@ -44,6 +44,20 @@ public class HomeController {
         return user.get();
     }
 
+    public double setCurrentMonthTotal(HttpServletRequest request) {
+        double total = 0;
+        User user = getUserFromSession(request.getSession());
+        LocalDate currentDate = LocalDate.now();
+        Month currentMonth = currentDate.getMonth();
+
+        for (Practice practice : user.getPractices()) {
+            if (practice.getDate().getMonth() == currentMonth) {
+                total += practice.getNumCredits();
+            }
+        }
+        return total;
+    }
+
     @GetMapping
     public String displayPlayerDashboard(Model model, HttpServletRequest request,
                                          HttpSession session) {
@@ -59,17 +73,12 @@ public class HomeController {
 
 
     @PostMapping
-    public String processAddPracticeForm(@ModelAttribute Practice newPractice, Model model) {
-//        public double getCurrentMonthTotal(){
-//            double total = 0;
-//            LocalDate currentDate = LocalDate.now();
-//            Month currentMonth = currentDate.getMonth();
-//            for (Practice practice : practices) {
-//                if (practice.getDate().getMonth() == currentMonth) {
-//                    total += practice.getNumCredits();
-//                }
-//            }
-//        }
+    public String processAddPracticeForm(@ModelAttribute Practice newPractice, Model model,
+                                         HttpServletRequest request) {
+            User user = getUserFromSession(request.getSession());
+            LocalDate currentDate = LocalDate.now();
+            Month currentMonth = currentDate.getMonth();
+
         practiceRepository.save(newPractice);
         return "redirect:";
     }

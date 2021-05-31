@@ -60,6 +60,8 @@ public class User extends AbstractEntity {
         this.practices = practices;
     }
 
+
+
     //
 //    public double getCurrentMonthCredits() {
 //        return currentMonthCredits;
