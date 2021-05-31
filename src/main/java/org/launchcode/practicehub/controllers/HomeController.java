@@ -44,41 +44,25 @@ public class HomeController {
         return user.get();
     }
 
-    public double setCurrentMonthTotal(HttpServletRequest request) {
-        double total = 0;
-        User user = getUserFromSession(request.getSession());
-        LocalDate currentDate = LocalDate.now();
-        Month currentMonth = currentDate.getMonth();
 
-        for (Practice practice : user.getPractices()) {
-            if (practice.getDate().getMonth() == currentMonth) {
-                total += practice.getNumCredits();
-            }
-        }
-        return total;
-    }
 
     @GetMapping
     public String displayPlayerDashboard(Model model, HttpServletRequest request,
                                          HttpSession session) {
-        //Integer userId = (Integer) session.getAttribute(userSessionKey);
         User user = getUserFromSession(request.getSession());
         model.addAttribute("title", "My Dashboard");
-        // call to practice cred getter method - map it to thymeleaf variable
+        // call to practice cred getter method - loop over user's list of practices, grab cred num from each - map it
+        // to thymeleaf
         model.addAttribute("skater", user.getSkaterName());
+        model.addAttribute("creditTotal", user.setCurrentMonthTotal());
         model.addAttribute(new Practice());
 
         return "index";
     }
-
-
+    
     @PostMapping
     public String processAddPracticeForm(@ModelAttribute Practice newPractice, Model model,
                                          HttpServletRequest request) {
-            User user = getUserFromSession(request.getSession());
-            LocalDate currentDate = LocalDate.now();
-            Month currentMonth = currentDate.getMonth();
-
         practiceRepository.save(newPractice);
         return "redirect:";
     }
@@ -90,18 +74,5 @@ public class HomeController {
         return "practices";
     }
 
-//    @GetMapping("name")
-//    public String setSkaterName(Model model) {
-//        model.addAttribute("title", "Please enter your skater name.");
-//        model.addAttribute(new Player());
-//        return "name";
-//    }
-//
-//    @PostMapping("name")
-//    public String processSetSkaterNameForm(@ModelAttribute Player newPlayer, Model model) {
-//
-//        playerRepository.save(newPlayer);
-//        return "index";
-//    }
 
 }

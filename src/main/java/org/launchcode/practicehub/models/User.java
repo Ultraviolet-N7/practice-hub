@@ -5,6 +5,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
@@ -56,11 +57,18 @@ public class User extends AbstractEntity {
         return practices;
     }
 
-    public void setPractices(List<Practice> practices) {
-        this.practices = practices;
+    public double setCurrentMonthTotal() {
+        double total = 0;
+        LocalDate currentDate = LocalDate.now();
+        Month currentMonth = currentDate.getMonth();
+
+        for (Practice practice : this.getPractices()) {
+            if (practice.getDate().getMonth() == currentMonth) {
+                total += practice.getNumCredits();
+            }
+        }
+        return total;
     }
-
-
 
     //
 //    public double getCurrentMonthCredits() {
