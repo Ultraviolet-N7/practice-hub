@@ -32,9 +32,12 @@
 <!--        <label class="form-check-label" for="regular">Game</label>-->
 <!--   </div>-->
 
+<div class="container-fluid">
 
-<form method="post" action="" class="container-fluid">
-    <div class="form-group">
+    <div class="row">
+        <div class="col-6 form-group">
+<form method="post" action="">
+
     <label>Practice Date<input th:field="${practice.date}" type="date" name="practiceDate" class="form-control"></label>
     <label>Number of Credits
         <select th:field="${practice.numCredits}" name="creditNum" class="form-control">
@@ -45,13 +48,29 @@
             <option value="3">3</option>
         </select>
     </label>
-    </div>
-    <div class="form-group container-fluid">
-        <label>
-            <input type="submit" value="Submit" class="btn btn-dark">
-        </label>
-    </div>
+    <label>
+        <input type="submit" value="Submit" class="btn btn-dark">
+    </label>
 </form>
+   </div>
+   </div>
+
+    <div class="row">
+        <div class="col-6" th:text="test">
+        </div>
+    </div>
+
+</div>
+
+<!--    <div class="container-fluid">-->
+<!--        -->
+<!--    </div>-->
+
+<!--    <div class="form-group container-fluid">-->
+<!--        -->
+<!--    </div>-->
+
+
 
 <h3 class="justify-content-center">Documents</h3>
 <div class="row">
