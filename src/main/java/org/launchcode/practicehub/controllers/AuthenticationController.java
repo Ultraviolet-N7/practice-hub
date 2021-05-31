@@ -26,8 +26,6 @@ public class AuthenticationController {
     @Autowired
     UserRepository userRepository;
 
-    @Autowired PlayerRepository playerRepository;
-
     private static final String userSessionKey = "user";
 
     public User getUserFromSession(HttpSession session) {
@@ -47,17 +45,6 @@ public class AuthenticationController {
 
     private static void setUserInSession(HttpSession session, User user) {
         session.setAttribute(userSessionKey, user.getId());
-    }
-// Figure out how to refer to current user in session
-    @GetMapping
-    public String displayPlayerDashboard(Model model, HttpServletRequest request, HttpSession session) {
-        //Integer userId = (Integer) session.getAttribute(userSessionKey);
-        User user = getUserFromSession(request.getSession());
-        model.addAttribute("title", "My Dashboard");
-        model.addAttribute("skater", user.getSkaterName());
-        model.addAttribute(new Practice());
-
-        return "index";
     }
 
 
@@ -99,21 +86,15 @@ public class AuthenticationController {
         User newUser = new User(registerFormDTO.getUsername(), registerFormDTO.getPassword(), registerFormDTO.getSkaterName());
         userRepository.save(newUser);
         setUserInSession(request.getSession(), newUser);
-        //request.getSession().setAttribute("skaterName", newUser.getSkaterName());
-
-       // Player newPlayer = new Player(constructor parameters) (add user id to constructor)
-        //player repository.save(newPlayer);
-
-//        Player newPlayer = new Player(newUser, registerFormDTO.getSkaterName());
-//        playerRepository.save(newPlayer);
 
         return "redirect:";
     }
 
     @GetMapping("/login")
-    public String displayLoginForm(Model model) {
+    public String displayLoginForm(Model model, HttpSession session, User user) {
         model.addAttribute(new LoginFormDTO());
         model.addAttribute("title", "Log In");
+        session.setAttribute("test-key", "test-id");
         return "login";
     }
 

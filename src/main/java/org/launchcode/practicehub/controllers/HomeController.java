@@ -15,8 +15,10 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.time.LocalDate;
+import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class HomeController {
@@ -24,35 +26,50 @@ public class HomeController {
     @Autowired
     private PracticeRepository practiceRepository;
 
-    @Autowired
-    private PlayerRepository playerRepository;
-
     @Autowired UserRepository userRepository;
 
+    private static final String userSessionKey = "user";
 
-//    @GetMapping
-//    public String displayPlayerDashboard(Model model, HttpServletRequest request, HttpSession session) {
-//        model.addAttribute("title", "My Dashboard");
-//        model.addAttribute("skater", request.getSession().getAttribute("skaterName"));
-//        model.addAttribute(new Practice());
-//        //userRepository.findByUsername(user.getUsername());
-//        // Ask about the use of .get() here!
-////        Player player = userRepository.findById(user.getId()).get().getPlayer();
-////        Double credTotal = 0.0;
-////
-////        for (Practice practice : player.getPractices()) {
-////             credTotal += practice.getNumCredits();
-////             player.setCurrentMonthCredits(credTotal);
-////        }
-////
-////        model.addAttribute("counter", player.getCurrentMonthCredits());
-////        model.addAttribute("name", player.getName());
-//
-//        return "index";
-//    }
+    public User getUserFromSession(HttpSession session) {
+        Integer userId = (Integer) session.getAttribute(userSessionKey);
+        if (userId == null) {
+            return null;
+        }
+
+        Optional<User> user = userRepository.findById(userId);
+
+        if (user.isEmpty()) {
+            return null;
+        }
+        return user.get();
+    }
+
+    @GetMapping
+    public String displayPlayerDashboard(Model model, HttpServletRequest request,
+                                         HttpSession session) {
+        //Integer userId = (Integer) session.getAttribute(userSessionKey);
+        User user = getUserFromSession(request.getSession());
+        model.addAttribute("title", "My Dashboard");
+        // call to practice cred getter method - map it to thymeleaf variable
+        model.addAttribute("skater", user.getSkaterName());
+        model.addAttribute(new Practice());
+
+        return "index";
+    }
+
 
     @PostMapping
     public String processAddPracticeForm(@ModelAttribute Practice newPractice, Model model) {
+//        public double getCurrentMonthTotal(){
+//            double total = 0;
+//            LocalDate currentDate = LocalDate.now();
+//            Month currentMonth = currentDate.getMonth();
+//            for (Practice practice : practices) {
+//                if (practice.getDate().getMonth() == currentMonth) {
+//                    total += practice.getNumCredits();
+//                }
+//            }
+//        }
         practiceRepository.save(newPractice);
         return "redirect:";
     }

@@ -7,6 +7,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+import java.time.LocalDate;
+import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,7 +24,7 @@ public class User extends AbstractEntity {
     @NotNull
     private String skaterName;
 
-    private double currentMonthCredits = 0.0;
+//    private double currentMonthCredits = 0.0;
 
     @OneToMany(mappedBy = "user")
     private List<Practice> practices = new ArrayList<>();
@@ -46,8 +48,26 @@ public class User extends AbstractEntity {
     }
 
     public String getSkaterName() {
+
         return skaterName;
     }
+
+    public List<Practice> getPractices() {
+        return practices;
+    }
+
+    public void setPractices(List<Practice> practices) {
+        this.practices = practices;
+    }
+
+    //
+//    public double getCurrentMonthCredits() {
+//        return currentMonthCredits;
+//    }
+//
+//    public void setCurrentMonthCredits(double currentMonthCredits) {
+//        this.currentMonthCredits = currentMonthCredits;
+//    }
 
     //    public Player getPlayer() {
 //        return player;
