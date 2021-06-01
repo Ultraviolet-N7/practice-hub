@@ -53,6 +53,10 @@ public class User extends AbstractEntity {
         return skaterName;
     }
 
+    public void setSkaterName(String skaterName) {
+        this.skaterName = skaterName;
+    }
+
     public List<Practice> getPractices() {
         return practices;
     }

@@ -17,7 +17,7 @@ public class Practice extends AbstractEntity {
     private Double numCredits;
 
     @ManyToOne
-    //@NotNull(message = "Test message")
+    @NotNull(message = "Skater required")
     private User user;
 
     public Practice(LocalDate practiceDate, Double numCredits) {
@@ -43,5 +43,11 @@ public class Practice extends AbstractEntity {
         this.numCredits = numCredits;
     }
 
+    public User getUser() {
+        return user;
+    }
 
+    public void setUser(User user) {
+        this.user = user;
+    }
 }

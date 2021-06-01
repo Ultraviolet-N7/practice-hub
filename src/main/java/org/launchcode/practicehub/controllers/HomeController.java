@@ -59,10 +59,16 @@ public class HomeController {
 
         return "index";
     }
-    
+
     @PostMapping
     public String processAddPracticeForm(@ModelAttribute Practice newPractice, Model model,
                                          HttpServletRequest request) {
+        User user = getUserFromSession(request.getSession());
+
+        if(user != null) {
+            newPractice.setUser(user);
+            newPractice.getUser().setSkaterName(user.getSkaterName());
+        }
         practiceRepository.save(newPractice);
         return "redirect:";
     }
