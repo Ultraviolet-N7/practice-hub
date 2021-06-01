@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 
 @Entity
@@ -49,5 +50,20 @@ public class Practice extends AbstractEntity {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public static ArrayList<Practice> searchBySkaterName(String skaterName, Iterable<Practice> allPractices) {
+        String lowerName = skaterName.toLowerCase();
+        ArrayList<Practice> results = new ArrayList<>();
+
+        for (Practice practice : allPractices) {
+
+            if (practice.getUser().getSkaterName().contains(lowerName)) {
+                results.add(practice);
+            }
+
+        }
+        return results;
+
     }
 }
