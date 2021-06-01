@@ -9,6 +9,12 @@
 <h1 th:text="${title}"></h1>
 </div>
 
+<form th:action="@{/search}" method="post">
+    <label for="searchTerm">Search practices by skater name:</label>
+    <input type="text" name="searchTerm" id="searchTerm"/>
+    <input type="submit" value="Search"/>
+</form>
+
 <div class="container-fluid">
 <table class="table table-striped">
     <thead>
