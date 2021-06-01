@@ -1,9 +1,6 @@
 package org.launchcode.practicehub.controllers;
 
-import org.launchcode.practicehub.data.PlayerRepository;
 import org.launchcode.practicehub.data.UserRepository;
-import org.launchcode.practicehub.models.Player;
-import org.launchcode.practicehub.models.Practice;
 import org.launchcode.practicehub.models.User;
 import org.launchcode.practicehub.models.dto.LoginFormDTO;
 import org.launchcode.practicehub.models.dto.RegisterFormDTO;
@@ -24,7 +21,7 @@ import java.util.Optional;
 public class AuthenticationController {
 
     @Autowired
-    UserRepository userRepository;
+    private UserRepository userRepository;
 
     private static final String userSessionKey = "user";
 

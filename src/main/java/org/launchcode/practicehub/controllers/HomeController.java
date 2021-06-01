@@ -1,23 +1,16 @@
 package org.launchcode.practicehub.controllers;
 
-import org.launchcode.practicehub.data.PlayerRepository;
 import org.launchcode.practicehub.data.PracticeRepository;
 import org.launchcode.practicehub.data.UserRepository;
-import org.launchcode.practicehub.models.Player;
 import org.launchcode.practicehub.models.Practice;
 import org.launchcode.practicehub.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.time.LocalDate;
-import java.time.Month;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -26,7 +19,8 @@ public class HomeController {
     @Autowired
     private PracticeRepository practiceRepository;
 
-    @Autowired UserRepository userRepository;
+    @Autowired
+    private UserRepository userRepository;
 
     private static final String userSessionKey = "user";
 
@@ -73,12 +67,7 @@ public class HomeController {
         return "redirect:";
     }
 
-    @GetMapping("practices")
-    public String displayAllPractices(Model model) {
-        model.addAttribute("title", "All Practices");
-        model.addAttribute("practices", practiceRepository.findAll());
-        return "practices";
-    }
+
 
 
 }
