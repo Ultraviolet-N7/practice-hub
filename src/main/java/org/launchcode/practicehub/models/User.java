@@ -7,7 +7,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.ArrayList;
@@ -16,13 +18,15 @@ import java.util.List;
 @Entity
 public class User extends AbstractEntity {
 
-    @NotNull
+    @NotBlank(message = "Username is required")
+    @Size(min = 3, message = "Username must be a minimum of 3 characters")
     private String username;
 
-    @NotNull
+    @NotBlank(message = "Password is required")
+    @Size(min = 4, message = "Password must be a minimum of 4 characters")
     private String pwHash;
 
-    @NotNull
+    @NotBlank(message = "Skater name is required")
     private String skaterName;
 
 //    private double currentMonthCredits = 0.0;
