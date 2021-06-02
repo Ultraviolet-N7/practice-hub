@@ -52,13 +52,13 @@ public class Practice extends AbstractEntity {
         this.user = user;
     }
 
-    public static ArrayList<Practice> searchBySkaterName(String skaterName, Iterable<Practice> allPractices) {
-        String lowerName = skaterName.toLowerCase();
+    public static ArrayList<Practice> searchBySkaterName(String name, Iterable<Practice> allPractices) {
         ArrayList<Practice> results = new ArrayList<>();
 
-        for (Practice practice : allPractices) {
 
-            if (practice.getUser().getSkaterName().contains(lowerName)) {
+        for (Practice practice : allPractices) {
+            String lowerName = practice.getUser().getSkaterName().toLowerCase();
+            if (lowerName.contains(name.toLowerCase())) {
                 results.add(practice);
             }
 

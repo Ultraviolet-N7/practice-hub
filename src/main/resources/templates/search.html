@@ -6,32 +6,32 @@
 <nav th:replace="fragments :: navBar"></nav>
 
 <div class="container-fluid">
-<h1 th:text="${title}"></h1>
+    <h1 th:text="${title}"></h1>
 </div>
 
-<form th:action="@{/practices}" method="post">
+<form th:action="@{/search}" method="post">
     <label for="searchTerm">Search practices by skater name:</label>
     <input type="text" name="searchTerm" id="searchTerm"/>
     <input type="submit" value="Search"/>
 </form>
 
 <div class="container-fluid">
-<table class="table table-striped">
-    <thead>
+    <table class="table table-striped">
+        <thead>
         <tr>
             <th scope="col">Skater Name</th>
             <th scope="col">Date</th>
             <th scope="col">Number of Credits</th>
         </tr>
-    </thead>
-    <tbody>
+        </thead>
+        <tbody>
         <tr th:each="practice : ${practices}">
             <td th:text="${practice.user.skaterName}">Placeholder</td>
             <td th:text="${practice.date}">a date</td>
             <td th:text="${practice.numCredits}">a number</td>
         </tr>
-    </tbody>
-</table>
+        </tbody>
+    </table>
 </div>
 
 

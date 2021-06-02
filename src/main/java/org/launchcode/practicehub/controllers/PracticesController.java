@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.Optional;
 
@@ -46,12 +47,14 @@ public class PracticesController {
         return "practices";
     }
 
-//    @PostMapping("practices")
-//    public String displaySearchResults(Model model, @RequestParam String searchTerm) {
-//        Iterable<Practice> practices;
-//        practices=
-//        return "search-results";
-//    }
+    @PostMapping("practices")
+    public String displaySearchResults(Model model, HttpServletRequest request, @RequestParam String searchTerm) {
+        User user = getUserFromSession(request.getSession());
+        Iterable<Practice> practices;
+        practices = Practice.searchBySkaterName(searchTerm, practiceRepository.findAll());
+        model.addAttribute("practices", practices);
+        return "practices";
+    }
 
 
 }
