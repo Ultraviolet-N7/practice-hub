@@ -12,13 +12,15 @@ import java.util.ArrayList;
 @Entity
 public class Practice extends AbstractEntity {
 
+
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate date;
 
+    @NotNull(message = "Number of practice credits required")
     private Double numCredits;
 
     @ManyToOne
-    @NotNull(message = "Skater required")
+    @NotNull
     private User user;
 
     public Practice(LocalDate practiceDate, Double numCredits) {

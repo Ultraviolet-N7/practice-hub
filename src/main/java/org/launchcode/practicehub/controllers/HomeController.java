@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 import java.util.Optional;
 
 @Controller
@@ -55,7 +56,7 @@ public class HomeController {
     }
 
     @PostMapping
-    public String processAddPracticeForm(@ModelAttribute Practice newPractice, Model model,
+    public String processAddPracticeForm(@Valid @ModelAttribute Practice newPractice, Model model,
                                          HttpServletRequest request) {
         User user = getUserFromSession(request.getSession());
 
