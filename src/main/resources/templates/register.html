@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
-<body class="container">
+<body class="container-fluid text-center">
 
+<br>
+<h1 th:text="${title}" class="display-2"></h1>
+<br>
+<br>
 <form method="post">
     <div class="form-group">
         <label>Username
@@ -27,8 +31,10 @@
         </label>
     </div>
 
-    <input type="submit" class="btn btn-primary" value="Register" />
+    <input type="submit" class="btn btn-dark" value="Register" />
 </form>
+<br>
+<p class="text-center"><a href="/login">Back to login page</a></p>
 
 </body>
 </html>

@@ -20,7 +20,6 @@ public class Practice extends AbstractEntity {
     private Double numCredits;
 
     @ManyToOne
-    @NotNull
     private User user;
 
     public Practice(LocalDate practiceDate, Double numCredits) {

@@ -4,3 +4,43 @@
 <body class="container-fluid text-center">
 
 <nav th:replace="fragments :: navBar"></nav>
+
+<body>
+<h1 th:text="${title}" class="display-2"></h1>
+
+<div class="text-center mx-auto" style="font-family: -apple-system, BlinkMacSystemFont,
+“Segoe UI”, “Roboto”, “Oxygen”, “Ubuntu”, “Cantarell”,
+“Fira Sans”, “Droid Sans”, “Helvetica Neue”,
+sans-serif;">
+    <br>
+    <br>
+    <ul class="nav justify-content-center list-group" style="font-size: large">
+        <li class="nav-item list-group-item">
+            <a class="nav-link active text-dark"
+               href="https://bc3-production-us-east-2.s3.us-east-2.amazonaws.com/hcjngjki07zp1ol10x5f5kbp5wii?response-content-disposition=inline%3B%20filename%3D%22Arch%20Handbook%20-%202020-2021.pdf%22%3B%20filename%2A%3DUTF-8%27%27Arch%2520Handbook%2520-%25202020-2021.pdf&response-content-type=application%2Fpdf&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAS5PME4CT5QW2PJJU%2F20210516%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Date=20210516T172443Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=ab8d37a313a99076e9397d55029093a13bb5531eee8579f784b563e327a5517e">Handbook</a>
+        </li>
+        <li class="nav-item list-group-item">
+            <a class="nav-link active text-dark"
+               th:href="@{https://docs.google.com/forms/d/e/1FAIpQLSce3q_EPQEsiXjs6UUdra5LV04z6pSY-fvELJegBsMbBpnq5w/viewform}">Exemption Forms & Waivers</a>
+        </li>
+        <li class="nav-item list-group-item">
+            <a class="nav-link active text-dark"
+               href="https://docs.google.com/forms/d/e/1FAIpQLSfYBVZuOgLKvAhNehnk_5wxI5n8dIBykAnbrgYtUlXWiRvRUg/viewform">Anonymous Complaint Form</a>
+        </li>
+        <li class="nav-item list-group-item">
+            <a class="nav-link active text-dark"
+               href="https://docs.google.com/forms/d/e/1FAIpQLSctXQC2GSpDe9uxAUdIcXOEnkGamTJWIVKu1VVPguXVS0FDSw/viewform">Formal Grievance Form</a>
+        </li>
+        <li class="nav-item list-group-item">
+            <a class="nav-link active text-dark"
+               href="https://static.wftda.com/insurance/wftda-risk-management-guidelines.pdf">WFTDA Risk Management
+                Guidelines</a>
+        </li>
+        <li class="nav-item list-group-item">
+            <a class="nav-link active text-dark"
+               href="https://docs.google.com/spreadsheets/d/1xCwdqL_V2XIOU6FdWGg9Z05T2KznZ4dW09aVZSElC8k/edit#gid=0">
+                Arch Org Chart</a>
+        </li>
+    </ul>
+</div>
+</body>

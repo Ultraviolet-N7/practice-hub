@@ -5,15 +5,24 @@
 
 <nav th:replace="fragments :: navBar"></nav>
 
-<div class="container-fluid">
-<h1 th:text="${title}"></h1>
+<div class="container-fluid text-center">
+<h1 th:text="${title}" class="display-2"></h1>
 </div>
+
+<br>
+<br>
+
+<div class="text-center mx-auto" style="font-family: -apple-system, BlinkMacSystemFont,
+“Segoe UI”, “Roboto”, “Oxygen”, “Ubuntu”, “Cantarell”,
+“Fira Sans”, “Droid Sans”, “Helvetica Neue”,
+sans-serif;">
 
 <form th:action="@{/practices}" method="post">
     <label for="searchTerm">Search practices by skater name:</label>
     <input type="text" name="searchTerm" id="searchTerm"/>
-    <input type="submit" value="Search"/>
+    <input type="submit" value="Search" class="btn btn-dark"/>
 </form>
+    <br>
 
 <div class="container-fluid">
 <table class="table table-striped">
@@ -32,6 +41,7 @@
         </tr>
     </tbody>
 </table>
+</div>
 </div>
 
 
