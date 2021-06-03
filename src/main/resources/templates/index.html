@@ -1,48 +1,49 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
-<body class="container-fluid">
+<body class="container-fluid text-center">
 
 <nav th:replace="fragments :: navBar"></nav>
 
+<br>
 <div class="container-fluid">
-<h1 th:text="${title}"></h1>
-    <h2 th:text="${skater}">testy mctest</h2>
-    <h2 th:text="${creditTotal}">Placeholder</h2>
+    <h1 th:text="${title}" class="display-2"></h1>
+        <br>
+        <h2 th:text="${skater}" class="text-muted display-4 font-italic"></h2>
+
 </div>
+<br>
+<br>
+<br>
+<br>
+<br>
 
-<!--<form method="post" class="container-fluid">-->
-<!--    <div class="form-check">-->
-<!--        <input type="checkbox" name="regular" class="form-check-input" id="regular">-->
-<!--        <label class="form-check-label" for="regular">Regular</label>-->
-<!--    </div>-->
-<!--    <div class="form-check">-->
-<!--        <input type="checkbox" name="advanced" class="form-check-input" id="advanced">-->
-<!--        <label class="form-check-label" for="regular">Advanced</label>-->
-<!--    </div>-->
-<!--    <div class="form-check">-->
-<!--        <input type="checkbox" name="super" class="form-check-input" id="super">-->
-<!--        <label class="form-check-label" for="regular">Super</label>-->
-<!--   </div>-->
-<!--   <div class="form-check">-->
-<!--        <input type="checkbox" name="fundamentals" class="form-check-input" id="fundamentals">-->
-<!--        <label class="form-check-label" for="regular">Fundamentals</label>-->
-<!--   </div>-->
-<!--   <div class="form-check">-->
-<!--        <input type="checkbox" name="game" class="form-check-input" id="game">-->
-<!--        <label class="form-check-label" for="regular">Game</label>-->
-<!--   </div>-->
+<div style="font-family: -apple-system, BlinkMacSystemFont,
+    “Segoe UI”, “Roboto”, “Oxygen”, “Ubuntu”, “Cantarell”,
+    “Fira Sans”, “Droid Sans”, “Helvetica Neue”,
+    sans-serif;">
+<div>
+    <h2 th:text="${creditTotal}"></h2>
+</div>
+    <br>
+    <br>
+    <br>
 
 <div class="container-fluid">
+    <div class="row text-center justify-content-center ">
+        <h2 class="text-center mx-auto">Log practices here:</h2>
+        </div>
+    <br>
 
-    <div class="row">
-        <div class="col-6 form-group">
-<form method="post" action="">
+    <div class="col-12 form-group">
+    <form method="post" action="">
 
-    <label>Practice Date<input th:field="*{practice.date}" type="date" name="practiceDate" class="form-control"></label>
+    <div>
+        <label>Practice Date<input th:field="*{practice.date}" type="date" name="practiceDate" class="form-control mx-auto">
+    </label>
 
-    <label>Number of Credits
-        <select th:field="*{practice.numCredits}" name="creditNum" class="form-control">
+        <label>Number of Credits
+        <select th:field="*{practice.numCredits}" name="creditNum" class="form-control mx-auto">
             <option value="">*Select One*</option>
             <option value=".5">.5</option>
             <option value="1">1</option>
@@ -50,27 +51,16 @@
             <option value="3">3</option>
         </select>
     </label>
+    </div>
+
+        <br>
+    <div>
     <label>
         <input type="submit" value="Submit" class="btn btn-dark">
     </label>
-</form>
-   </div>
-   </div>
-
-    <div class="row">
-        <div class="col-6" th:text="test">
-        </div>
     </div>
-
+    </form>
 </div>
-
-<!--    <div class="container-fluid">-->
-<!--        -->
-<!--    </div>-->
-
-<!--    <div class="form-group container-fluid">-->
-<!--        -->
-<!--    </div>-->
 
 
 
@@ -104,6 +94,7 @@
                 Arch Org Chart</a>
         </li>
     </ul>
+</div>
 </div>
 
 

@@ -48,8 +48,8 @@ public class HomeController {
         model.addAttribute("title", "My Dashboard");
         // call to practice cred getter method - loop over user's list of practices, grab cred num from each - map it
         // to thymeleaf
-        model.addAttribute("skater", user.getSkaterName());
-        model.addAttribute("creditTotal", user.setCurrentMonthTotal());
+        model.addAttribute("skater", "Welcome back, " + user.getSkaterName() + "!");
+        model.addAttribute("creditTotal", "Practice credits logged this month: " + user.setCurrentMonthTotal());
         model.addAttribute(new Practice());
 
         return "index";

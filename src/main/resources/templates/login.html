@@ -3,7 +3,9 @@
 <head th:replace="fragments :: head"></head>
 <body class="container">
 
-<form method="post">
+<form method="post" class="text-center">
+    <h1 class="display-2">Welcome to the practice hub!</h1>
+    <br>
     <div class="form-group">
         <label th:for="username">Username
             <input class="form-control" th:field="${loginFormDTO.username}">
@@ -17,10 +19,10 @@
         <p class="error" th:errors="${loginFormDTO.password}"></p>
     </div>
 
-    <input type="submit" class="btn btn-primary" value="Log In" />
+    <input type="submit" class="btn btn-dark" value="Log In" />
 </form>
-
-<p>Don't have an account? <a href="/register">Register for one.</a></p>
+<br>
+<p class="text-center">Don't have an account? <a href="/register">Register for one.</a></p>
 
 </body>
 </html>
