@@ -14,6 +14,7 @@ public class Practice extends AbstractEntity {
 
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @NotNull(message = "Practice date is required")
     private LocalDate date;
 
     @NotNull(message = "Number of practice credits required")
