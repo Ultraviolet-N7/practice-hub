@@ -7,6 +7,7 @@ import org.launchcode.practicehub.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -57,13 +58,22 @@ public class HomeController {
 
     @PostMapping
     public String processAddPracticeForm(@Valid @ModelAttribute Practice newPractice, Model model,
-                                         HttpServletRequest request) {
+                                         HttpServletRequest request, Errors errors) {
         User user = getUserFromSession(request.getSession());
 
         if(user != null) {
             newPractice.setUser(user);
             newPractice.getUser().setSkaterName(user.getSkaterName());
         }
+
+        if(errors.hasErrors()) {
+            model.addAttribute("title", "My Dashboard");
+            model.addAttribute("skater", "Welcome back, " + user.getSkaterName() + "!");
+            model.addAttribute("creditTotal", "Practice credits logged this month: " + user.setCurrentMonthTotal());
+            model.addAttribute("errorMsg", "Invalid submission");
+            return "redirect";
+        }
+
         practiceRepository.save(newPractice);
         return "redirect:";
     }
